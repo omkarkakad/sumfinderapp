@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<title> Sum Finder App </title>
+		<style>
+			* {font-size:40px;}
+			body {background-color:lightblue;}
+			h1 {background-color:black;color:white;width:50%;border-radius:40px;}
+			.btn {background-color:black;color:white;margin-left:100px;width:20%;}
+			.btn:hover {color:red;}	
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1> Sum Finder By Omkar </h1>
+		<form onsubmit="check()">
+		<input type="number" placeholder="Enter Integer" id="num" style="width:700px";>
+		<br><br>
+		<input type="submit" value="M1" class="btn"/>
+		<input type="submit" value="M2" class="btn"/>
+		<input type="submit" value="M3" class="btn"/>
+
+		</form>
+		<h2 id="msg"/>
+		<script>		
+			function check()
+			{
+				event.preventDefault()
+
+				let num=document.getElementById("num");
+				let msg=document.getElementById("msg");
+			
+				if (num.value==="")
+				{
+					alert("u did not enter the integer");
+					msg.innerHTML="";
+					num.value="";
+					num.focus();
+					return;
+				}
+				let n=parseInt(num.value);
+				if (n<1)
+				{
+					alert("u  enter the invalid integer");
+					msg.innerHTML="";
+					num.value="";
+					num.focus();
+					return;
+
+				}
+				let action=document.activeElement.value;
+				if (action==="M1")
+				{
+					let res="";
+					let i=1,s=0;
+					while(i<=n)
+					{
+						s=s+i;
+						i=i+1;
+
+					}
+					res="sum = " + s;
+					msg.innerHTML="res 1 --- " + res;
+
+				}
+				else if (action==="M2")
+				{
+					let res="";
+					let i=1,s=0;
+					do
+					{
+						s=s+i;
+						i=i+1;
+
+					}while(i<=n)
+					res="sum = " + s;
+
+					msg.innerHTML="res 2 ---- " + res;
+
+
+
+				}
+				else if (action==="M3")
+				{
+					let res="";
+					let s=0;
+					for(let i=1; i<=n; i++)
+					{
+
+						s=s+i;
+					}
+					
+					res="sum = " + s;
+					msg.innerHTML="res 3 --- " + res;
+
+
+				}
+
+			}
+
+
+		</script>
+
+
+	</center>
+	</body>
+
+</html>
